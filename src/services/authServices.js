@@ -6,14 +6,14 @@ const bcrypt = require('bcrypt');
 const models = require('../models')
 // const jwt  = require('jsonwebtoken');
 
-const {user} = models
+const {users} = models
 // const models =initModels(db);
 
 require('dotenv').config;
 class authServices{
     static async register(_user){
         try {
-            const result = await user.create(_user);
+            const result = await users.create(_user);
             return result;
         } catch (error) {
             throw error;
@@ -23,7 +23,7 @@ class authServices{
 
     static async getU(){
         try {
-            const result = await user.findAll();
+            const result = await users.findAll();
             return result;
         } catch (error) {
             throw error;
@@ -33,7 +33,7 @@ class authServices{
     static async logIn(credentials){
         try {
             const {email, password} = credentials;
-            const _user = await user.findOne({where: {email}});
+            const _user = await users.findOne({where: {email}});
             if(_user){
                 const isValid = bcrypt.compareSync(password,  _user.password); // true
                 console.log(`password:${password}  passUser:${_user.password}`);
@@ -44,7 +44,7 @@ class authServices{
 
             // return {isValid : false}
         } catch (error) {
-            throw error;  
+            throw error;
         }
     }
 

@@ -40,7 +40,7 @@ class user extends Sequelize.Model {
       },
 
     sequelize,
-    tableName: 'user',
+    tableName: 'users',
     schema: 'public',
     timestamps: false,
     indexes: [
