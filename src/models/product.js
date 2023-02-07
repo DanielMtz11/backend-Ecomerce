@@ -36,7 +36,8 @@ class product extends Sequelize.Model {
         model: 'user',
         key: 'id'
       }
-    }
+    },
+    
   }, {
     sequelize,
     tableName: 'product',

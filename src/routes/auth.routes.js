@@ -2,7 +2,7 @@
 //login
 
 const {Router} = require('express');
-const {register, getUsers, login} = require('../controllers/auth.controllers')
+const {register, getUsers, login } = require('../controllers/auth.controllers')
 
 const router = Router();
 
